@@ -29,6 +29,7 @@
 		37B44DEB2F150FE200CEB4E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37B44DED2F150FE200CEB4E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37DF27342F1667EF00B64C13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		37DF27362F1670D300B64C13 /* NetworkClient */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkClient; sourceTree = "<group>"; };
 		37E2098E2F166612000C015D /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,6 +49,7 @@
 		37B44DD32F150FDE00CEB4E8 = {
 			isa = PBXGroup;
 			children = (
+				37DF27372F16722300B64C13 /* Packages */,
 				37B44DDE2F150FDE00CEB4E8 /* NewsReader */,
 				37B44DDD2F150FDE00CEB4E8 /* Products */,
 			);
@@ -73,6 +75,14 @@
 				37B44DED2F150FE200CEB4E8 /* Info.plist */,
 			);
 			path = NewsReader;
+			sourceTree = "<group>";
+		};
+		37DF27372F16722300B64C13 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				37DF27362F1670D300B64C13 /* NetworkClient */,
+			);
+			path = Packages;
 			sourceTree = "<group>";
 		};
 		37E2098C2F1663A9000C015D /* Resources */ = {
