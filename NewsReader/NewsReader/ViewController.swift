@@ -6,14 +6,22 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
     
-        // Do any additional setup after loading the view.
+    override func viewDidLoad() {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = Asset.share.image
+
+        view.addSubview(imageView)
+
+        imageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(50)
+            make.centerX.equalToSuperview()
+            make.height.width.equalTo(100)
+        }
     }
 
 
