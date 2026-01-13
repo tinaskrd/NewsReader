@@ -81,6 +81,7 @@
 				37B44DD82F150FDE00CEB4E8 /* Sources */,
 				37B44DD92F150FDE00CEB4E8 /* Frameworks */,
 				37B44DDA2F150FDE00CEB4E8 /* Resources */,
+				37E2098B2F165C34000C015D /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -143,6 +144,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37E2098B2F165C34000C015D /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftgen > /dev/null; then\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		37B44DD82F150FDE00CEB4E8 /* Sources */ = {
