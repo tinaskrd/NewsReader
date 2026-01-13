@@ -15,6 +15,7 @@
 		37B44DEC2F150FE200CEB4E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B44DEA2F150FE200CEB4E8 /* LaunchScreen.storyboard */; };
 		37E209882F165973000C015D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37E209872F165973000C015D /* SnapKit */; };
 		37E2098A2F165973000C015D /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 37E209892F165973000C015D /* SnapKit-Dynamic */; };
+		37E2098F2F166612000C015D /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2098E2F166612000C015D /* XCAssets+Generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		37B44DE82F150FE200CEB4E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37B44DEB2F150FE200CEB4E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37B44DED2F150FE200CEB4E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37E2098E2F166612000C015D /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +66,36 @@
 				37B44DE12F150FDE00CEB4E8 /* SceneDelegate.swift */,
 				37B44DE32F150FDE00CEB4E8 /* ViewController.swift */,
 				37B44DE52F150FDE00CEB4E8 /* Main.storyboard */,
-				37B44DE82F150FE200CEB4E8 /* Assets.xcassets */,
+				37E2098C2F1663A9000C015D /* Resources */,
 				37B44DEA2F150FE200CEB4E8 /* LaunchScreen.storyboard */,
 				37B44DED2F150FE200CEB4E8 /* Info.plist */,
 			);
 			path = NewsReader;
+			sourceTree = "<group>";
+		};
+		37E2098C2F1663A9000C015D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				37E209902F166660000C015D /* Localization */,
+				37B44DE82F150FE200CEB4E8 /* Assets.xcassets */,
+				37E2098D2F1664BC000C015D /* Generated */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		37E2098D2F1664BC000C015D /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				37E2098E2F166612000C015D /* XCAssets+Generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		37E209902F166660000C015D /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,10 +105,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37B44DF02F150FE200CEB4E8 /* Build configuration list for PBXNativeTarget "NewsReader" */;
 			buildPhases = (
+				37E2098B2F165C34000C015D /* SwiftGen */,
 				37B44DD82F150FDE00CEB4E8 /* Sources */,
 				37B44DD92F150FDE00CEB4E8 /* Frameworks */,
 				37B44DDA2F150FDE00CEB4E8 /* Resources */,
-				37E2098B2F165C34000C015D /* SwiftGen */,
 			);
 			buildRules = (
 			);
@@ -174,6 +201,7 @@
 				37B44DE42F150FDE00CEB4E8 /* ViewController.swift in Sources */,
 				37B44DE02F150FDE00CEB4E8 /* AppDelegate.swift in Sources */,
 				37B44DE22F150FDE00CEB4E8 /* SceneDelegate.swift in Sources */,
+				37E2098F2F166612000C015D /* XCAssets+Generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +264,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -299,7 +327,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
