@@ -14,6 +14,7 @@
 		37B44DE92F150FE200CEB4E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B44DE82F150FE200CEB4E8 /* Assets.xcassets */; };
 		37B44DEC2F150FE200CEB4E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37B44DEA2F150FE200CEB4E8 /* LaunchScreen.storyboard */; };
 		37DF27332F1667EF00B64C13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37DF27352F1667EF00B64C13 /* Localizable.strings */; };
+		37DF273A2F1672C800B64C13 /* NetworkClient in Frameworks */ = {isa = PBXBuildFile; productRef = 37DF27392F1672C800B64C13 /* NetworkClient */; };
 		37E209882F165973000C015D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37E209872F165973000C015D /* SnapKit */; };
 		37E2098A2F165973000C015D /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 37E209892F165973000C015D /* SnapKit-Dynamic */; };
 		37E2098F2F166612000C015D /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E2098E2F166612000C015D /* XCAssets+Generated.swift */; };
@@ -40,6 +41,7 @@
 			files = (
 				37E209882F165973000C015D /* SnapKit in Frameworks */,
 				37E2098A2F165973000C015D /* SnapKit-Dynamic in Frameworks */,
+				37DF273A2F1672C800B64C13 /* NetworkClient in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,9 +51,10 @@
 		37B44DD32F150FDE00CEB4E8 = {
 			isa = PBXGroup;
 			children = (
-				37DF27372F16722300B64C13 /* Packages */,
 				37B44DDE2F150FDE00CEB4E8 /* NewsReader */,
+				37DF27372F16722300B64C13 /* Packages */,
 				37B44DDD2F150FDE00CEB4E8 /* Products */,
+				37DF27382F1672C800B64C13 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +86,13 @@
 				37DF27362F1670D300B64C13 /* NetworkClient */,
 			);
 			path = Packages;
+			sourceTree = "<group>";
+		};
+		37DF27382F1672C800B64C13 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		37E2098C2F1663A9000C015D /* Resources */ = {
@@ -131,6 +141,7 @@
 			packageProductDependencies = (
 				37E209872F165973000C015D /* SnapKit */,
 				37E209892F165973000C015D /* SnapKit-Dynamic */,
+				37DF27392F1672C800B64C13 /* NetworkClient */,
 			);
 			productName = NewsReader;
 			productReference = 37B44DDC2F150FDE00CEB4E8 /* NewsReader.app */;
@@ -459,6 +470,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		37DF27392F1672C800B64C13 /* NetworkClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetworkClient;
+		};
 		37E209872F165973000C015D /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 37E209862F165973000C015D /* XCRemoteSwiftPackageReference "SnapKit" */;

@@ -7,8 +7,13 @@
 
 import UIKit
 import SnapKit
+import NetworkClient
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, Test {
+    func test() {
+        print("Test")
+    }
+    
     
     override func viewDidLoad() {
         let imageView = UIImageView()
