@@ -29,6 +29,9 @@
 		37DE4F882F24EF4800C5D745 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4F872F24EF4800C5D745 /* UIColor+Utils.swift */; };
 		37DE4F8A2F24EF6500C5D745 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4F892F24EF6500C5D745 /* UIImageView+Utils.swift */; };
 		37DE4F8C2F24EF7F00C5D745 /* UIRefreshControl+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4F8B2F24EF7F00C5D745 /* UIRefreshControl+Utils.swift */; };
+		37DE4F8F2F24F13E00C5D745 /* EmptyDataSet-Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 37DE4F8E2F24F13E00C5D745 /* EmptyDataSet-Swift */; };
+		37DE4F922F24F15800C5D745 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 37DE4F912F24F15800C5D745 /* Kingfisher */; };
+		37DE4F952F24F17E00C5D745 /* PagingKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37DE4F942F24F17E00C5D745 /* PagingKit */; };
 		37DF27332F1667EF00B64C13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37DF27352F1667EF00B64C13 /* Localizable.strings */; };
 		37DF273A2F1672C800B64C13 /* NetworkClient in Frameworks */ = {isa = PBXBuildFile; productRef = 37DF27392F1672C800B64C13 /* NetworkClient */; };
 		37E209882F165973000C015D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37E209872F165973000C015D /* SnapKit */; };
@@ -70,12 +73,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3748107C2F24D06700F494FA /* AlamofireNetworkClient in Frameworks */,
+				37DE4F8F2F24F13E00C5D745 /* EmptyDataSet-Swift in Frameworks */,
 				374810822F24D08300F494FA /* NewsService in Frameworks */,
+				37DE4F922F24F15800C5D745 /* Kingfisher in Frameworks */,
 				374810802F24D07B00F494FA /* NewsAPIService in Frameworks */,
 				37E209882F165973000C015D /* SnapKit in Frameworks */,
 				3748107E2F24D07100F494FA /* DataTypes in Frameworks */,
 				372FD0992F17D72D00487172 /* Alamofire in Frameworks */,
 				37DF273A2F1672C800B64C13 /* NetworkClient in Frameworks */,
+				37DE4F952F24F17E00C5D745 /* PagingKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +225,9 @@
 				3748107D2F24D07100F494FA /* DataTypes */,
 				3748107F2F24D07B00F494FA /* NewsAPIService */,
 				374810812F24D08300F494FA /* NewsService */,
+				37DE4F8E2F24F13E00C5D745 /* EmptyDataSet-Swift */,
+				37DE4F912F24F15800C5D745 /* Kingfisher */,
+				37DE4F942F24F17E00C5D745 /* PagingKit */,
 			);
 			productName = NewsReader;
 			productReference = 37B44DDC2F150FDE00CEB4E8 /* NewsReader.app */;
@@ -251,6 +260,9 @@
 			packageReferences = (
 				37E209862F165973000C015D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				372FD0972F17D72D00487172 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				37DE4F8D2F24F13E00C5D745 /* XCRemoteSwiftPackageReference "EmptyDataSet-Swift" */,
+				37DE4F902F24F15800C5D745 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				37DE4F932F24F17D00C5D745 /* XCRemoteSwiftPackageReference "PagingKit" */,
 			);
 			productRefGroup = 37B44DDD2F150FDE00CEB4E8 /* Products */;
 			projectDirPath = "";
@@ -556,6 +568,30 @@
 				version = 5.9.1;
 			};
 		};
+		37DE4F8D2F24F13E00C5D745 /* XCRemoteSwiftPackageReference "EmptyDataSet-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Xiaoye220/EmptyDataSet-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
+		37DE4F902F24F15800C5D745 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.6.2;
+			};
+		};
+		37DE4F932F24F17D00C5D745 /* XCRemoteSwiftPackageReference "PagingKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kazuhiro4949/PagingKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.18.2;
+			};
+		};
 		37E209862F165973000C015D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -587,6 +623,21 @@
 		374810812F24D08300F494FA /* NewsService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NewsService;
+		};
+		37DE4F8E2F24F13E00C5D745 /* EmptyDataSet-Swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37DE4F8D2F24F13E00C5D745 /* XCRemoteSwiftPackageReference "EmptyDataSet-Swift" */;
+			productName = "EmptyDataSet-Swift";
+		};
+		37DE4F912F24F15800C5D745 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37DE4F902F24F15800C5D745 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		37DE4F942F24F17E00C5D745 /* PagingKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37DE4F932F24F17D00C5D745 /* XCRemoteSwiftPackageReference "PagingKit" */;
+			productName = PagingKit;
 		};
 		37DF27392F1672C800B64C13 /* NetworkClient */ = {
 			isa = XCSwiftPackageProductDependency;
