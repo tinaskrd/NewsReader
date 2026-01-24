@@ -2,8 +2,6 @@
 //  ViewController.swift
 //  NewsReader
 //
-//  Created by Tina  on 12.01.26.
-//
 
 import UIKit
 import SnapKit
@@ -44,4 +42,3 @@ class ViewController: UIViewController {
         }
     }
 }
-
