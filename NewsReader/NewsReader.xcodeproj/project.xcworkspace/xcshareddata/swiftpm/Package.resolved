@@ -10,6 +10,33 @@
       }
     },
     {
+      "identity" : "emptydataset-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Xiaoye220/EmptyDataSet-Swift",
+      "state" : {
+        "revision" : "ffaa10404b3c7582532887adc7a0f8558f656673",
+        "version" : "5.0.2"
+      }
+    },
+    {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "d30a5fad881137e2267f96a8e3fc35c58999bb94",
+        "version" : "8.6.2"
+      }
+    },
+    {
+      "identity" : "pagingkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kazuhiro4949/PagingKit.git",
+      "state" : {
+        "revision" : "b8adf6c4ffba3df381989c1a74e54c758b2c3135",
+        "version" : "1.18.2"
+      }
+    },
+    {
       "identity" : "snapkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit",

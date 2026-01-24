@@ -5,3 +5,10 @@
   Created by Tina  on 13.01.26.
   
 */
+
+"articles.empty.title" = "Ooops";
+"articles.empty.message" = "We're apologize, but there are no news for this source";
+
+"button.reload" = "Reload";
+
+"navigation.news.title" = "News";
