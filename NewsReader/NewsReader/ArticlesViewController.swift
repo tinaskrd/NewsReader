@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ArticlesViewController.swift
 //  NewsReader
 //
 
@@ -7,7 +7,7 @@ import UIKit
 import SnapKit
 import NewsService
 
-class ViewController: UIViewController {
+class ArticlesViewController: UIViewController {
     private let newsService: NewsService = AppDI.shared.newService
 
 
