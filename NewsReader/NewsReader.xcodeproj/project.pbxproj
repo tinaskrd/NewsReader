@@ -13,6 +13,7 @@
 		374810802F24D07B00F494FA /* NewsAPIService in Frameworks */ = {isa = PBXBuildFile; productRef = 3748107F2F24D07B00F494FA /* NewsAPIService */; };
 		374810822F24D08300F494FA /* NewsService in Frameworks */ = {isa = PBXBuildFile; productRef = 374810812F24D08300F494FA /* NewsService */; };
 		374810852F24D12800F494FA /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374810842F24D12800F494FA /* AppConstants.swift */; };
+		374810882F24D19C00F494FA /* AppDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374810872F24D19C00F494FA /* AppDI.swift */; };
 		37B44DE02F150FDE00CEB4E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DDF2F150FDE00CEB4E8 /* AppDelegate.swift */; };
 		37B44DE22F150FDE00CEB4E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DE12F150FDE00CEB4E8 /* SceneDelegate.swift */; };
 		37B44DE42F150FDE00CEB4E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B44DE32F150FDE00CEB4E8 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		372FD0962F17D36000487172 /* NewsService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NewsService; sourceTree = "<group>"; };
 		372FD09C2F17D75A00487172 /* AlamofireNetworkClient */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AlamofireNetworkClient; path = ../../AlamofireNetworkClient; sourceTree = "<group>"; };
 		374810842F24D12800F494FA /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		374810872F24D19C00F494FA /* AppDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDI.swift; sourceTree = "<group>"; };
 		37B44DDC2F150FDE00CEB4E8 /* NewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B44DDF2F150FDE00CEB4E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37B44DE12F150FDE00CEB4E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,14 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		374810862F24D18C00F494FA /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				374810872F24D19C00F494FA /* AppDI.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 		37B44DD32F150FDE00CEB4E8 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 		37B44DDE2F150FDE00CEB4E8 /* NewsReader */ = {
 			isa = PBXGroup;
 			children = (
+				374810862F24D18C00F494FA /* DI */,
 				374810832F24D10600F494FA /* Config */,
 				37B44DDF2F150FDE00CEB4E8 /* AppDelegate.swift */,
 				37B44DE12F150FDE00CEB4E8 /* SceneDelegate.swift */,
@@ -255,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374810882F24D19C00F494FA /* AppDI.swift in Sources */,
 				37B44DE42F150FDE00CEB4E8 /* ViewController.swift in Sources */,
 				37B44DE02F150FDE00CEB4E8 /* AppDelegate.swift in Sources */,
 				37B44DE22F150FDE00CEB4E8 /* SceneDelegate.swift in Sources */,

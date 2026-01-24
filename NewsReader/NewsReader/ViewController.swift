@@ -7,13 +7,16 @@
 
 import UIKit
 import SnapKit
-import NetworkClient
+import NewsService
 
-class ViewController: UIViewController{
-   
-    
-    
+class ViewController: UIViewController {
+    private let newsService: NewsService = AppDI.shared.newService
+
+
     override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = Asset.share.image
@@ -25,8 +28,20 @@ class ViewController: UIViewController{
             make.centerX.equalToSuperview()
             make.height.width.equalTo(100)
         }
+
+        Task { [weak self] in
+            guard
+                let self,
+                let source = newsService.sources.first
+            else { return }
+
+            do {
+                let articles = try await newsService.fetchArticles(source: source)
+                print(articles)
+            } catch {
+                print(error)
+            }
+        }
     }
-
-
 }
 

@@ -6,5 +6,5 @@
 import Foundation
 
 enum AppConstants {
-    static let newURL = URL(string: "https://saurav.tech/NewsAPI")
+    static let newURL = URL(string: "https://saurav.tech/NewsAPI")!
 }
