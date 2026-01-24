@@ -35,6 +35,8 @@
 		37DE4F982F24F27700C5D745 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4F972F24F27700C5D745 /* Article.swift */; };
 		37DE4F9C2F24F2FB00C5D745 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4F9B2F24F2FB00C5D745 /* EmptyView.swift */; };
 		37DE4F9E2F24F31800C5D745 /* EmptyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4F9D2F24F31800C5D745 /* EmptyViewModel.swift */; };
+		37DE4FA12F24F3C100C5D745 /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4FA02F24F3C100C5D745 /* ArticlesViewModel.swift */; };
+		37DE4FA52F24F64900C5D745 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4FA42F24F64900C5D745 /* ArticleCell.swift */; };
 		37DF27332F1667EF00B64C13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37DF27352F1667EF00B64C13 /* Localizable.strings */; };
 		37DF273A2F1672C800B64C13 /* NetworkClient in Frameworks */ = {isa = PBXBuildFile; productRef = 37DF27392F1672C800B64C13 /* NetworkClient */; };
 		37E209882F165973000C015D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37E209872F165973000C015D /* SnapKit */; };
@@ -68,6 +70,8 @@
 		37DE4F972F24F27700C5D745 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		37DE4F9B2F24F2FB00C5D745 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		37DE4F9D2F24F31800C5D745 /* EmptyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewModel.swift; sourceTree = "<group>"; };
+		37DE4FA02F24F3C100C5D745 /* ArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
+		37DE4FA42F24F64900C5D745 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 		37DF27342F1667EF00B64C13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37DF27362F1670D300B64C13 /* NetworkClient */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkClient; sourceTree = "<group>"; };
 		37E2098E2F166612000C015D /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 		37DE4F992F24F2E400C5D745 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				37DE4F9F2F24F3B000C5D745 /* Articles */,
 				37DE4F9A2F24F2ED00C5D745 /* EmptyView */,
 			);
 			path = UI;
@@ -185,6 +190,15 @@
 				37DE4F9D2F24F31800C5D745 /* EmptyViewModel.swift */,
 			);
 			path = EmptyView;
+			sourceTree = "<group>";
+		};
+		37DE4F9F2F24F3B000C5D745 /* Articles */ = {
+			isa = PBXGroup;
+			children = (
+				37DE4FA02F24F3C100C5D745 /* ArticlesViewModel.swift */,
+				37DE4FA42F24F64900C5D745 /* ArticleCell.swift */,
+			);
+			path = Articles;
 			sourceTree = "<group>";
 		};
 		37DF27372F16722300B64C13 /* Packages */ = {
@@ -347,12 +361,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				37DE4F7E2F24EEC100C5D745 /* UICollectionView+Utils.swift in Sources */,
+				37DE4FA12F24F3C100C5D745 /* ArticlesViewModel.swift in Sources */,
 				37DE4F842F24EF0F00C5D745 /* UILabel+Utils.swift in Sources */,
 				37DE4F8C2F24EF7F00C5D745 /* UIRefreshControl+Utils.swift in Sources */,
 				374810882F24D19C00F494FA /* AppDI.swift in Sources */,
 				37B44DE42F150FDE00CEB4E8 /* ArticlesViewController.swift in Sources */,
 				37DE4F8A2F24EF6500C5D745 /* UIImageView+Utils.swift in Sources */,
 				37DE4F822F24EEF300C5D745 /* UIStackView+Utils.swift in Sources */,
+				37DE4FA52F24F64900C5D745 /* ArticleCell.swift in Sources */,
 				37DE4F9C2F24F2FB00C5D745 /* EmptyView.swift in Sources */,
 				37B44DE02F150FDE00CEB4E8 /* AppDelegate.swift in Sources */,
 				37B44DE22F150FDE00CEB4E8 /* SceneDelegate.swift in Sources */,

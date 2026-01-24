@@ -4,41 +4,152 @@
 //
 
 import UIKit
-import SnapKit
-import NewsService
+import Combine
+import EmptyDataSet_Swift
 
-class ArticlesViewController: UIViewController {
-    private let newsService: NewsService = AppDI.shared.newService
+protocol ArticlesViewControllerDelegate: AnyObject {
+    func articlesViewControllerDidSelect(_ controller: ArticlesViewController, didSelected article: Article)
+}
 
+final class ArticlesViewController: UIViewController {
+
+    private let viewModel: ArticlesViewModel!
+
+    private let cellIdentifier = "ArticleCell"
+    private let tableView = UITableView()
+
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl.default()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return refreshControl
+    }()
+
+    private var cancellables: Set<AnyCancellable> = []
+
+    weak var delegate: ArticlesViewControllerDelegate?
+    
+    // MARK: - Init
+
+    init(viewModel: ArticlesViewModel, delegate: ArticlesViewControllerDelegate) {
+        self.viewModel = viewModel
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        setupUI()
+        bind()
+        viewModel.loadData()
+    }
+}
 
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = Asset.share.image
+// MARK: - Private
 
-        view.addSubview(imageView)
-
-        imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(50)
-            make.centerX.equalToSuperview()
-            make.height.width.equalTo(100)
-        }
-
-        Task { [weak self] in
-            guard
-                let self,
-                let source = newsService.sources.first
-            else { return }
-
-            do {
-                let articles = try await newsService.fetchArticles(source: source)
-                print(articles)
-            } catch {
-                print(error)
+private extension ArticlesViewController {
+    func bind() {
+        viewModel.onDataLoadingPublisher
+            .dispatchOnMainQueue()
+            .sink { [weak self] _ in
+                self?.refreshLoadingState()
             }
+            .store(in: &cancellables)
+
+        viewModel.onDataChangedPublisher
+            .dispatchOnMainQueue()
+            .sink { [weak self] _ in
+                self?.reloadData()
+            }
+            .store(in: &cancellables)
+    }
+
+    func reloadData() {
+        tableView.reloadData()
+    }
+
+    func refreshLoadingState() {
+        if !viewModel.isDataLoading {
+            refreshControl.endRefreshing()
         }
+        tableView.reloadEmptyDataSet()
+    }
+
+    func setupUI() {
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        tableView.register(ArticleCell.self, forCellReuseIdentifier: cellIdentifier)
+
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.refreshControl = refreshControl
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension ArticlesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let article = viewModel.articles[indexPath.row]
+        delegate?.articlesViewControllerDidSelect(self, didSelected: article)
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension ArticlesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.articles.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ArticleCell else { return UITableViewCell() }
+        cell.update(with: viewModel.articles[indexPath.row])
+        return cell
+    }
+}
+
+// MARK: - EmptyDataSetSource
+
+extension ArticlesViewController: EmptyDataSetSource {
+    func customView(forEmptyDataSet scrollView: UIScrollView) -> UIView? {
+        EmptyView(viewModel: viewModel.emptyViewModel)
+    }
+
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
+        -50.0
+    }
+}
+
+// MARK: - EmptyDataSetDelegate
+
+extension ArticlesViewController: EmptyDataSetDelegate {
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView) -> Bool {
+        true
+    }
+
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView) -> Bool {
+        !viewModel.isDataLoading
+    }
+}
+
+// MARK: - Actions
+
+private extension ArticlesViewController {
+    @objc
+    func refresh() {
+        viewModel.reloadData()
     }
 }
