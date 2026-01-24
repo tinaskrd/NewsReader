@@ -4,20 +4,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "NetworkClient",
+    name: "DataTypes",
     platforms: [
         .iOS(.v15)
     ],
     products: [
         .library(
-            name: "NetworkClient",
-            targets: ["NetworkClient"]),
+            name: "DataTypes",
+            targets: ["DataTypes"]),
     ],
     targets: [
         .target(
-            name: "NetworkClient"),
+            name: "DataTypes"),
         .testTarget(
-            name: "NetworkClientTests",
-            dependencies: ["NetworkClient"]),
+            name: "DataTypesTests",
+            dependencies: ["DataTypes"]),
     ]
 )

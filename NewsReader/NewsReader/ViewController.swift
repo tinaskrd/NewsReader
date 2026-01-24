@@ -9,10 +9,8 @@ import UIKit
 import SnapKit
 import NetworkClient
 
-class ViewController: UIViewController, Test {
-    func test() {
-        print("Test")
-    }
+class ViewController: UIViewController{
+   
     
     
     override func viewDidLoad() {
