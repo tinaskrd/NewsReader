@@ -6,7 +6,7 @@
 import Foundation
 import DataTypes
 
-struct Article: Equatable {
+struct ArticleViewModel: Equatable {
     let id: String
     let title: String
     let source: String
@@ -17,7 +17,7 @@ struct Article: Equatable {
     let url: URL?
 }
 
-extension Article {
+extension ArticleViewModel {
     init(from article: DataTypes.Article) {
         self.id = article.id
         self.title = article.title
@@ -39,9 +39,8 @@ extension DateFormatter {
     }()
 }
 
-extension Article {
+extension ArticleViewModel {
     var publishedDateString: String {
         DateFormatter.article.string(from: publishedAT)
     }
 }
-

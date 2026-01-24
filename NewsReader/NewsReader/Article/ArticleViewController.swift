@@ -9,11 +9,11 @@ import WebKit
 final class ArticleViewController: UIViewController {
 
     private let webView = WKWebView()
-    private let article: Article
+    private let article: ArticleViewModel
     
     // MARK: - Init
     
-    init(article: Article) {
+    init(article: ArticleViewModel) {
         self.article = article
         super.init(nibName: nil, bundle: nil)
     }
@@ -40,7 +40,7 @@ private extension ArticleViewController {
         }
     }
     
-    func loadPage(with article: Article) {
+    func loadPage(with article: ArticleViewModel) {
         guard let url = article.url else { return }
         let request = URLRequest(url: url)
         webView.load(request)

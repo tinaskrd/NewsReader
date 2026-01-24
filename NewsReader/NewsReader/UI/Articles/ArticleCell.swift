@@ -90,7 +90,7 @@ extension ArticleCell {
 // MARK: - Public
 
 extension ArticleCell {
-    func update(with viewModel: Article) {
+    func update(with viewModel: ArticleViewModel) {
         titleLabel.text = viewModel.title
         summaryLabel.text = viewModel.summary
         dateLabel.text = viewModel.publishedDateString

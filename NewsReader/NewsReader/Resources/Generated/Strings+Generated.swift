@@ -10,25 +10,37 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 public enum L10n {
-  public enum Articles {
-    public enum Empty {
-      /// We're apologize, but there are no news for this source
-      public static let message = L10n.tr("Localizable", "articles.empty.message", fallback: "We're apologize, but there are no news for this source")
-      /// Localizable.strings
-      ///   NewsReader
-      /// 
-      ///   Created by Tina  on 13.01.26.
-      public static let title = L10n.tr("Localizable", "articles.empty.title", fallback: "Ooops")
+  public enum Alert {
+    public enum Button {
+      /// Ok
+      public static let ok = L10n.tr("Localizable", "alert.button.ok", fallback: "Ok")
     }
   }
   public enum Button {
     /// Reload
     public static let reload = L10n.tr("Localizable", "button.reload", fallback: "Reload")
+    /// Share
+    public static let share = L10n.tr("Localizable", "button.share", fallback: "Share")
   }
-  public enum Navigation {
-    public enum News {
-      /// News
-      public static let title = L10n.tr("Localizable", "navigation.news.title", fallback: "News")
+  public enum Image {
+    /// square.and.arrow.up
+    public static let share = L10n.tr("Localizable", "image.share", fallback: "square.and.arrow.up")
+  }
+  public enum Screen {
+    public enum Articles {
+      public enum Empty {
+        /// We're apologize, but there are no news for this source
+        public static let message = L10n.tr("Localizable", "screen.articles.empty.message", fallback: "We're apologize, but there are no news for this source")
+        /// Ooops
+        public static let title = L10n.tr("Localizable", "screen.articles.empty.title", fallback: "Ooops")
+      }
+    }
+    public enum Feed {
+      /// Localizable.strings
+      ///   NewsReader
+      /// 
+      ///   Created by Tina  on 13.01.26.
+      public static let title = L10n.tr("Localizable", "screen.feed.title", fallback: "Feed")
     }
   }
 }
