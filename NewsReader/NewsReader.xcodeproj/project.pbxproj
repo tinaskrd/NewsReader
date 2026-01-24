@@ -41,6 +41,7 @@
 		37DE4FAA2F24F6A400C5D745 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4FA92F24F6A400C5D745 /* FeedViewController.swift */; };
 		37DE4FAC2F24F6C600C5D745 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4FAB2F24F6C600C5D745 /* FeedViewModel.swift */; };
 		37DE4FAE2F24F6FE00C5D745 /* FeedUnderlineFocusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37DE4FAD2F24F6FE00C5D745 /* FeedUnderlineFocusView.xib */; };
+		37DE4FB02F24FCDC00C5D745 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4FAF2F24FCDC00C5D745 /* ArticleViewController.swift */; };
 		37DF27332F1667EF00B64C13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37DF27352F1667EF00B64C13 /* Localizable.strings */; };
 		37DF273A2F1672C800B64C13 /* NetworkClient in Frameworks */ = {isa = PBXBuildFile; productRef = 37DF27392F1672C800B64C13 /* NetworkClient */; };
 		37E209882F165973000C015D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 37E209872F165973000C015D /* SnapKit */; };
@@ -80,6 +81,7 @@
 		37DE4FA92F24F6A400C5D745 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		37DE4FAB2F24F6C600C5D745 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		37DE4FAD2F24F6FE00C5D745 /* FeedUnderlineFocusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedUnderlineFocusView.xib; sourceTree = "<group>"; };
+		37DE4FAF2F24FCDC00C5D745 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		37DF27342F1667EF00B64C13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37DF27362F1670D300B64C13 /* NetworkClient */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkClient; sourceTree = "<group>"; };
 		37E2098E2F166612000C015D /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				37E2098C2F1663A9000C015D /* Resources */,
 				37B44DEA2F150FE200CEB4E8 /* LaunchScreen.storyboard */,
 				37B44DED2F150FE200CEB4E8 /* Info.plist */,
+				37DE4FAF2F24FCDC00C5D745 /* ArticleViewController.swift */,
 			);
 			path = NewsReader;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37DE4F7E2F24EEC100C5D745 /* UICollectionView+Utils.swift in Sources */,
+				37DE4FB02F24FCDC00C5D745 /* ArticleViewController.swift in Sources */,
 				37DE4FA82F24F68B00C5D745 /* FeedMenuCell.swift in Sources */,
 				37DE4FA12F24F3C100C5D745 /* ArticlesViewModel.swift in Sources */,
 				37DE4F842F24EF0F00C5D745 /* UILabel+Utils.swift in Sources */,
