@@ -2,8 +2,6 @@
 //  ArticleCell.swift
 //  NewsReader
 //
-//  Created by Tina  on 24.01.26.
-//
 
 import UIKit
 import Kingfisher
