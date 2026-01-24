@@ -38,8 +38,9 @@ private extension FeedViewController {
         contentViewController.dataSource = self
         contentViewController.delegate = self
         contentViewController.reloadData()
-        
-        title = L10n.Navigation.News.title
+        contentViewController.scrollView.isScrollEnabled = false
+
+        title = L10n.Screen.Feed.title
     }
 
     func addSubviews() {
@@ -110,8 +111,12 @@ extension FeedViewController: PagingContentViewControllerDataSource {
         viewControllerAt index: Int
     ) -> UIViewController {
         let source = viewModel.sources[index]
-        let viewModel = ArticlesViewModel(apiService: AppDI.shared.newService, source: source)
-        let viewController = ArticlesViewController(viewModel: viewModel, delegate: self)
+        let viewModel = ArticlesViewModel(
+            apiService: AppDI.shared.newService,
+            source: source,
+            router: AppDI.shared.router
+        )
+        let viewController = ArticlesViewController(viewModel: viewModel)
         return viewController
     }
 }
@@ -133,14 +138,5 @@ extension FeedViewController: PagingContentViewControllerDelegate {
         percent: CGFloat
     ) {
         menuViewController.scroll(index: index, percent: percent, animated: false)
-    }
-}
-
-// MARK: - ArticlesViewControllerDelegate
-
-extension FeedViewController: ArticlesViewControllerDelegate {
-    func articlesViewControllerDidSelect(_ controller: ArticlesViewController, didSelected article: Article) {
-        let articleVC = ArticleViewController(article: article)
-        navigationController?.pushViewController(articleVC, animated: true)
     }
 }

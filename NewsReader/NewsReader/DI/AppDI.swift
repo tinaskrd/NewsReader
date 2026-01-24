@@ -20,6 +20,8 @@ final class AppDI {
         NewsAPIService(baseURL: AppConstants.newURL, networkClient: networkClient)
     }()
 
+    private(set) lazy var router: Router = AppRouter()
+
     private init() {
     }
 }

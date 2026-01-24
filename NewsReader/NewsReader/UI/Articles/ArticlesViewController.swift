@@ -7,10 +7,6 @@ import UIKit
 import Combine
 import EmptyDataSet_Swift
 
-protocol ArticlesViewControllerDelegate: AnyObject {
-    func articlesViewControllerDidSelect(_ controller: ArticlesViewController, didSelected article: Article)
-}
-
 final class ArticlesViewController: UIViewController {
 
     private let viewModel: ArticlesViewModel!
@@ -26,13 +22,10 @@ final class ArticlesViewController: UIViewController {
 
     private var cancellables: Set<AnyCancellable> = []
 
-    weak var delegate: ArticlesViewControllerDelegate?
-    
     // MARK: - Init
 
-    init(viewModel: ArticlesViewModel, delegate: ArticlesViewControllerDelegate) {
+    init(viewModel: ArticlesViewModel) {
         self.viewModel = viewModel
-        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -103,7 +96,25 @@ extension ArticlesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let article = viewModel.articles[indexPath.row]
-        delegate?.articlesViewControllerDidSelect(self, didSelected: article)
+        viewModel.open(article)
+    }
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let shareAction = UIContextualAction(style: .normal, title: L10n.Button.share) { [weak self] _, _, completion in
+            guard let self else { return }
+
+            let article = viewModel.articles[indexPath.row]
+            let result = viewModel.share(article)
+
+            completion(result)
+        }
+
+        shareAction.backgroundColor = .accent
+        shareAction.image = UIImage(systemName: L10n.Image.share)
+
+        let config = UISwipeActionsConfiguration(actions: [shareAction])
+        config.performsFirstActionWithFullSwipe = true
+        return config
     }
 }
 
@@ -113,7 +124,7 @@ extension ArticlesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.articles.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ArticleCell else { return UITableViewCell() }
         cell.update(with: viewModel.articles[indexPath.row])
