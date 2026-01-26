@@ -66,7 +66,7 @@
 		372FD09C2F17D75A00487172 /* AlamofireNetworkClient */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AlamofireNetworkClient; path = ../../AlamofireNetworkClient; sourceTree = "<group>"; };
 		374810842F24D12800F494FA /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		374810872F24D19C00F494FA /* AppDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDI.swift; sourceTree = "<group>"; };
-		37B44DDC2F150FDE00CEB4E8 /* NewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37B44DDC2F150FDE00CEB4E8 /* NewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = NewsReader.app; path = "/Users/tinaskordaki/Various/SwiftDevelopment/NewsReader/NewsReader/build/Debug-iphoneos/NewsReader.app"; sourceTree = "<absolute>"; };
 		37B44DDF2F150FDE00CEB4E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37B44DE12F150FDE00CEB4E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		37B44DE32F150FDE00CEB4E8 /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
@@ -151,17 +151,8 @@
 			children = (
 				37B44DDE2F150FDE00CEB4E8 /* NewsReader */,
 				37DF27372F16722300B64C13 /* Packages */,
-				37B44DDD2F150FDE00CEB4E8 /* Products */,
 				37DF27382F1672C800B64C13 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		37B44DDD2F150FDE00CEB4E8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				37B44DDC2F150FDE00CEB4E8 /* NewsReader.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		37B44DDE2F150FDE00CEB4E8 /* NewsReader */ = {
@@ -431,7 +422,7 @@
 				37DE4F902F24F15800C5D745 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				37DE4F932F24F17D00C5D745 /* XCRemoteSwiftPackageReference "PagingKit" */,
 			);
-			productRefGroup = 37B44DDD2F150FDE00CEB4E8 /* Products */;
+			productRefGroup = 37B44DD32F150FDE00CEB4E8;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
