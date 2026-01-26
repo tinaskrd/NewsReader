@@ -1,4 +1,7 @@
-
+//
+//  NewsAPICountry.swift
+//  NewsAPIService
+//
 
 import Foundation
 import DataTypes
@@ -46,6 +49,4 @@ extension NewsAPICountry: Country {
             return "gb"
         }
     }
-    
-
 }

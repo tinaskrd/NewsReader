@@ -3,7 +3,6 @@
 //  NewsReader
 //
 
-
 import Foundation
 import SwiftData
 import DataTypes

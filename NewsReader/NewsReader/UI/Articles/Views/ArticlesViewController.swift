@@ -9,15 +9,49 @@ import EmptyDataSet_Swift
 
 final class ArticlesViewController: UIViewController {
 
-    private let viewModel: ArticlesViewModel!
+    private enum Constant {
+        static let actionIconSize = CGSize(width: 32.0, height: 32.0)
+    }
 
-    private let cellIdentifier = "ArticleCell"
-    private let tableView = UITableView()
+    private let viewModel: ArticlesViewModel
+
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(ArticleCell.self, forCellReuseIdentifier: ArticleCell.reuseIdentifier)
+
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.refreshControl = refreshControl
+        return tableView
+    }()
 
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl.default()
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return refreshControl
+    }()
+
+    private lazy var loadingIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .accent
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+
+    private lazy var favoriteImage: UIImage? = {
+        Asset.Icon.icFavorite.image.resized(to: Constant.actionIconSize)
+    }()
+
+    private lazy var unfavoriteImage: UIImage? = {
+        Asset.Icon.icUnfavorite.image.resized(to: Constant.actionIconSize)
+    }()
+
+    private lazy var shareImage: UIImage? = {
+        Asset.Icon.icShare.image
+            .resized(to: Constant.actionIconSize)?
+            .withTintColor(.appBackground)
     }()
 
     private var cancellables: Set<AnyCancellable> = []
@@ -41,6 +75,11 @@ final class ArticlesViewController: UIViewController {
         setupUI()
         bind()
         viewModel.loadData()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.reloadData()
     }
 }
 
@@ -68,25 +107,27 @@ private extension ArticlesViewController {
     }
 
     func refreshLoadingState() {
-        if !viewModel.isDataLoading {
+        if viewModel.isDataLoading && viewModel.articles.isEmpty {
+            loadingIndicator.startAnimating()
+        } else {
+            loadingIndicator.stopAnimating()
             refreshControl.endRefreshing()
         }
+
         tableView.reloadEmptyDataSet()
     }
 
     func setupUI() {
-        view.addSubview(tableView)
+        view.addSubviews(tableView, loadingIndicator)
+
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
-        tableView.register(ArticleCell.self, forCellReuseIdentifier: cellIdentifier)
-
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.emptyDataSetSource = self
-        tableView.emptyDataSetDelegate = self
-        tableView.refreshControl = refreshControl
+        loadingIndicator.snp.makeConstraints { make in
+            make.centerX.equalTo(tableView.snp.centerX)
+            make.centerY.equalTo(tableView.snp.centerY).offset(-100.0)
+        }
     }
 }
 
@@ -99,20 +140,40 @@ extension ArticlesViewController: UITableViewDelegate {
         viewModel.open(article)
     }
 
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
+        let article = viewModel.articles[indexPath.row]
+
+        // Favorite/Unfavorite Action
+        let isFavorite = article.isFavorite
+        let favoriteAction = UIContextualAction(
+            style: .normal,
+            title: isFavorite ? L10n.Button.unfavorite : L10n.Button.favorite
+        ) { [weak self] _, _, completion in
+            guard let self else { return }
+
+            let result = viewModel.toggleFavorite(article)
+            completion(result)
+        }
+
+        favoriteAction.backgroundColor = .appYellow
+        favoriteAction.image = (isFavorite ? unfavoriteImage : favoriteImage)?
+            .withTintColor(.appBackground)
+
+        // Share action
         let shareAction = UIContextualAction(style: .normal, title: L10n.Button.share) { [weak self] _, _, completion in
             guard let self else { return }
 
-            let article = viewModel.articles[indexPath.row]
-            let result = viewModel.share(article)
-
+            let result = viewModel.articles[indexPath.row].share()
             completion(result)
         }
 
         shareAction.backgroundColor = .accent
-        shareAction.image = UIImage(systemName: L10n.Image.share)
+        shareAction.image = shareImage
 
-        let config = UISwipeActionsConfiguration(actions: [shareAction])
+        let config = UISwipeActionsConfiguration(actions: [favoriteAction, shareAction])
         config.performsFirstActionWithFullSwipe = true
         return config
     }
@@ -126,7 +187,12 @@ extension ArticlesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ArticleCell else { return UITableViewCell() }
+        guard
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: ArticleCell.reuseIdentifier,
+                for: indexPath
+            ) as? ArticleCell
+        else { return UITableViewCell() }
         cell.update(with: viewModel.articles[indexPath.row])
         return cell
     }
@@ -140,7 +206,7 @@ extension ArticlesViewController: EmptyDataSetSource {
     }
 
     func verticalOffset(forEmptyDataSet scrollView: UIScrollView) -> CGFloat {
-        -50.0
+        -100.0
     }
 }
 

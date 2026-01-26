@@ -6,6 +6,7 @@
 
 import UIKit
 
+@MainActor
 protocol Router: AnyObject {
 
     /// View controller used to present alerts, share sheets, etc.
@@ -37,6 +38,8 @@ protocol Router: AnyObject {
         completion: (() -> Void)?
     )
 
+    func present(error: String, completion: (() -> Void)?)
+
     // MARK: - Share
 
     func share(
@@ -50,6 +53,7 @@ protocol Router: AnyObject {
     )
 }
 
+@MainActor
 extension Router {
     func push(_ viewController: UIViewController) {
         push(viewController, animated: true)
@@ -66,5 +70,8 @@ extension Router {
             completion: nil
         )
     }
-}
 
+    func present(error: String) {
+        present(error: error, completion: nil)
+    }
+}

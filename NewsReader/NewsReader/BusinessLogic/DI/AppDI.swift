@@ -4,6 +4,7 @@
 
 
 import Foundation
+import SwiftData
 import NetworkClient
 import AlamofireNetworkClient
 import NewsService
@@ -18,6 +19,10 @@ final class AppDI {
 
     private(set) lazy var newService: NewsService = {
         NewsAPIService(baseURL: AppConstants.newURL, networkClient: networkClient)
+    }()
+
+    private(set) lazy var storageService: ArticlesStorageService = {
+        AppArticlesStorageService(context: AppStorageDataStack.shared.mainContext)
     }()
 
     private(set) lazy var router: Router = AppRouter()

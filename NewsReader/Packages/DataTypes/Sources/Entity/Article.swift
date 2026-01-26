@@ -5,7 +5,7 @@
 
 import Foundation
 
-public struct Article: Equatable, Identifiable {
+public struct Article: Equatable {
     public let id: String
     public let sourceName: String
     public let author: String?

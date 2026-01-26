@@ -1,3 +1,7 @@
+//
+//  ArticleMapper.swift
+//  NewsAPIService
+//
 
 
 import Foundation

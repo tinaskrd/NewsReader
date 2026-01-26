@@ -1,3 +1,7 @@
+//
+//  ArticleDTO.swift
+//  NewsAPIService
+//
 
 import Foundation
 

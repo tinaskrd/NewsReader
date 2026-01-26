@@ -25,6 +25,11 @@
 		37D801802F252604006CA13B /* AppArticlesStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8017F2F252604006CA13B /* AppArticlesStorageService.swift */; };
 		37D801822F25261D006CA13B /* AppStorageDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D801812F25261D006CA13B /* AppStorageDataStack.swift */; };
 		37D801842F25265E006CA13B /* ArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D801832F25265E006CA13B /* ArticleEntity.swift */; };
+		37D801892F252C94006CA13B /* RemoteArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D801882F252C94006CA13B /* RemoteArticlesViewController.swift */; };
+		37D8018B2F252CEE006CA13B /* BaseArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8018A2F252CEE006CA13B /* BaseArticlesViewModel.swift */; };
+		37D8018D2F252D1E006CA13B /* FavoriteArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8018C2F252D1E006CA13B /* FavoriteArticleViewModel.swift */; };
+		37D8018F2F253218006CA13B /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D8018E2F253218006CA13B /* UIImage+Utils.swift */; };
+		37D801922F2534E6006CA13B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D801912F2534E6006CA13B /* TabBarController.swift */; };
 		37DE4F7B2F24EE2800C5D745 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4F7A2F24EE2800C5D745 /* Strings+Generated.swift */; };
 		37DE4F7E2F24EEC100C5D745 /* UICollectionView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4F7D2F24EEC100C5D745 /* UICollectionView+Utils.swift */; };
 		37DE4F802F24EEDD00C5D745 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DE4F7F2F24EEDD00C5D745 /* UIView+Utils.swift */; };
@@ -74,6 +79,11 @@
 		37D8017F2F252604006CA13B /* AppArticlesStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppArticlesStorageService.swift; sourceTree = "<group>"; };
 		37D801812F25261D006CA13B /* AppStorageDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageDataStack.swift; sourceTree = "<group>"; };
 		37D801832F25265E006CA13B /* ArticleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleEntity.swift; sourceTree = "<group>"; };
+		37D801882F252C94006CA13B /* RemoteArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteArticlesViewController.swift; sourceTree = "<group>"; };
+		37D8018A2F252CEE006CA13B /* BaseArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseArticlesViewModel.swift; sourceTree = "<group>"; };
+		37D8018C2F252D1E006CA13B /* FavoriteArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteArticleViewModel.swift; sourceTree = "<group>"; };
+		37D8018E2F253218006CA13B /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
+		37D801912F2534E6006CA13B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		37DE4F7A2F24EE2800C5D745 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		37DE4F7D2F24EEC100C5D745 /* UICollectionView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Utils.swift"; sourceTree = "<group>"; };
 		37DE4F7F2F24EEDD00C5D745 /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
@@ -158,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				37D801852F25273D006CA13B /* BusinessLogic */,
-				37D8017A2F251E19006CA13B /* Article */,
 				37DE4F992F24F2E400C5D745 /* UI */,
 				374810832F24D10600F494FA /* Config */,
 				37B44DDF2F150FDE00CEB4E8 /* AppDelegate.swift */,
@@ -218,6 +227,34 @@
 			path = BusinessLogic;
 			sourceTree = "<group>";
 		};
+		37D801862F252C1F006CA13B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				37B44DE32F150FDE00CEB4E8 /* ArticlesViewController.swift */,
+				37DE4FA42F24F64900C5D745 /* ArticleCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		37D801872F252C32006CA13B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				37DE4FA02F24F3C100C5D745 /* ArticlesViewModel.swift */,
+				37D801882F252C94006CA13B /* RemoteArticlesViewController.swift */,
+				37D8018A2F252CEE006CA13B /* BaseArticlesViewModel.swift */,
+				37D8018C2F252D1E006CA13B /* FavoriteArticleViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		37D801902F2534D6006CA13B /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				37D801912F2534E6006CA13B /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		37DE4F7C2F24EEAD00C5D745 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +266,7 @@
 				37DE4F872F24EF4800C5D745 /* UIColor+Utils.swift */,
 				37DE4F892F24EF6500C5D745 /* UIImageView+Utils.swift */,
 				37DE4F8B2F24EF7F00C5D745 /* UIRefreshControl+Utils.swift */,
+				37D8018E2F253218006CA13B /* UIImage+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -236,6 +274,8 @@
 		37DE4F992F24F2E400C5D745 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				37D801902F2534D6006CA13B /* TabBar */,
+				37D8017A2F251E19006CA13B /* Article */,
 				37DE4F7C2F24EEAD00C5D745 /* Utils */,
 				37DE4FA62F24F67D00C5D745 /* Feed */,
 				37DE4F9F2F24F3B000C5D745 /* Articles */,
@@ -256,9 +296,8 @@
 		37DE4F9F2F24F3B000C5D745 /* Articles */ = {
 			isa = PBXGroup;
 			children = (
-				37B44DE32F150FDE00CEB4E8 /* ArticlesViewController.swift */,
-				37DE4FA02F24F3C100C5D745 /* ArticlesViewModel.swift */,
-				37DE4FA42F24F64900C5D745 /* ArticleCell.swift */,
+				37D801862F252C1F006CA13B /* Views */,
+				37D801872F252C32006CA13B /* ViewModel */,
 			);
 			path = Articles;
 			sourceTree = "<group>";
@@ -442,9 +481,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				37DE4F7E2F24EEC100C5D745 /* UICollectionView+Utils.swift in Sources */,
+				37D8018D2F252D1E006CA13B /* FavoriteArticleViewModel.swift in Sources */,
 				37DE4FB02F24FCDC00C5D745 /* ArticleViewController.swift in Sources */,
 				37DE4FA82F24F68B00C5D745 /* FeedMenuCell.swift in Sources */,
 				37DE4FA12F24F3C100C5D745 /* ArticlesViewModel.swift in Sources */,
+				37D8018B2F252CEE006CA13B /* BaseArticlesViewModel.swift in Sources */,
 				37D801822F25261D006CA13B /* AppStorageDataStack.swift in Sources */,
 				37D8017E2F2525EB006CA13B /* ArticlesStorageService.swift in Sources */,
 				37D801802F252604006CA13B /* AppArticlesStorageService.swift in Sources */,
@@ -457,8 +498,10 @@
 				37B44DE42F150FDE00CEB4E8 /* ArticlesViewController.swift in Sources */,
 				37DE4F8A2F24EF6500C5D745 /* UIImageView+Utils.swift in Sources */,
 				37DE4F822F24EEF300C5D745 /* UIStackView+Utils.swift in Sources */,
+				37D8018F2F253218006CA13B /* UIImage+Utils.swift in Sources */,
 				37D801772F251DCD006CA13B /* Router.swift in Sources */,
 				37DE4FA52F24F64900C5D745 /* ArticleCell.swift in Sources */,
+				37D801922F2534E6006CA13B /* TabBarController.swift in Sources */,
 				37DE4F9C2F24F2FB00C5D745 /* EmptyView.swift in Sources */,
 				37B44DE02F150FDE00CEB4E8 /* AppDelegate.swift in Sources */,
 				37B44DE22F150FDE00CEB4E8 /* SceneDelegate.swift in Sources */,
@@ -468,6 +511,7 @@
 				37DE4F802F24EEDD00C5D745 /* UIView+Utils.swift in Sources */,
 				37DE4F982F24F27700C5D745 /* ArticleViewModel.swift in Sources */,
 				37DE4FAA2F24F6A400C5D745 /* FeedViewController.swift in Sources */,
+				37D801892F252C94006CA13B /* RemoteArticlesViewController.swift in Sources */,
 				37DE4F862F24EF2800C5D745 /* UIFont+Utils.swift in Sources */,
 				37D801842F25265E006CA13B /* ArticleEntity.swift in Sources */,
 				37DE4F882F24EF4800C5D745 /* UIColor+Utils.swift in Sources */,

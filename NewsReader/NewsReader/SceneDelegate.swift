@@ -19,11 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.backgroundColor = .white
-        
-        let feedVC = FeedViewController()
-        let navigationController = UINavigationController(rootViewController: feedVC)
-        window.rootViewController = navigationController
+        window.backgroundColor = .appBackground
+        window.rootViewController = TabBarController()
         window.makeKeyAndVisible()
         
         self.window = window

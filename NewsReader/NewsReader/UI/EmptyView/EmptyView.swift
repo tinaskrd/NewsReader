@@ -3,7 +3,6 @@
 //  NewsReader
 //
 
-
 import UIKit
 import SnapKit
 
@@ -12,14 +11,14 @@ final class EmptyView: UIView {
 
     private let titleLabel = UILabel(
         font: .primarySemibold(of: 17.0),
-        textColor: .titleColor,
+        textColor: .title,
         textAlignment: .center,
         numberOfLines: 0
     )
 
     private let messageLabel = UILabel(
         font: .primaryRegular(of: 15.0),
-        textColor: .titleColor,
+        textColor: .title,
         textAlignment: .center,
         numberOfLines: 0
     )
@@ -27,7 +26,8 @@ final class EmptyView: UIView {
     private let imageView = UIImageView(contentMode: .scaleAspectFit)
 
     private lazy var button: UIButton = {
-        let button = UIButton(configuration: .plain())
+        let button = UIButton(configuration: .bordered())
+        button.configuration?.background.cornerRadius = 16.0
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }()
@@ -93,7 +93,7 @@ private extension EmptyView {
         }
 
         button.snp.makeConstraints { make in
-            make.height.equalTo(40.0)
+            make.height.equalTo(56.0)
         }
     }
 }
@@ -106,3 +106,4 @@ private extension EmptyView {
         viewModel.buttonAction?()
     }
 }
+
