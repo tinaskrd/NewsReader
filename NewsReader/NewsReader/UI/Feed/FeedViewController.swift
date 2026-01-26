@@ -111,10 +111,11 @@ extension FeedViewController: PagingContentViewControllerDataSource {
         viewControllerAt index: Int
     ) -> UIViewController {
         let source = viewModel.sources[index]
-        let viewModel = ArticlesViewModel(
+        let viewModel = RemoteArticlesViewModel(
             apiService: AppDI.shared.newService,
             source: source,
-            router: AppDI.shared.router
+            router: AppDI.shared.router,
+            storageService: AppDI.shared.storageService
         )
         let viewController = ArticlesViewController(viewModel: viewModel)
         return viewController

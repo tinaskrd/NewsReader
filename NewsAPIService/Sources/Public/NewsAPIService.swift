@@ -1,3 +1,7 @@
+//
+//  NewsAPIService.swift
+//  NewsAPIService
+
 import Foundation
 import NewsService
 import NetworkClient

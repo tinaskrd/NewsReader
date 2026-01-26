@@ -69,6 +69,15 @@ extension AppRouter: Router {
         )
     }
 
+    func present(error: String, completion: (() -> Void)?) {
+        presentOKAlert(
+            title: L10n.Error.title,
+            message: error,
+            animated: true,
+            completion: completion
+        )
+    }
+
     func share(
         items: [Any],
         excludedActivityTypes: [UIActivity.ActivityType]? = nil,
@@ -79,7 +88,7 @@ extension AppRouter: Router {
         completion: UIActivityViewController.CompletionWithItemsHandler? = nil
     ) {
         guard let presenter = presentingViewController else { return }
-
+        
         let activity = UIActivityViewController(activityItems: items, applicationActivities: nil)
         activity.excludedActivityTypes = excludedActivityTypes
         activity.completionWithItemsHandler = completion

@@ -3,7 +3,6 @@
 //  NewsReader
 //
 
-
 import UIKit
 
 extension UIStackView {

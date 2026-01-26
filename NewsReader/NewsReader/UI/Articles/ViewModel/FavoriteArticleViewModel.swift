@@ -1,15 +1,12 @@
 //
-//  ArticlesViewModel.swift
+//  FavoriteArticleViewModel.swift
 //  NewsReader
 //
 
 import Foundation
 import Combine
-import NewsService
-import DataTypes
 
-final class ArticlesViewModel {
-
+final class FavoriteArticlesViewModel: BaseArticlesViewModel, ArticlesViewModel {
     private(set) var articles: [ArticleViewModel] = [] {
         didSet {
             guard oldValue != articles else { return }
@@ -36,28 +33,14 @@ final class ArticlesViewModel {
     private let onDataChangedSubject = PassthroughSubject<[ArticleViewModel], Never>()
 
     private(set) lazy var emptyViewModel = EmptyViewModel(
-        title: L10n.Screen.Articles.Empty.title,
-        message: L10n.Screen.Articles.Empty.message,
-        icon: Asset.icRSS.image,
+        title: L10n.Screen.Favorites.Empty.title,
+        message: L10n.Screen.Favorites.Empty.message,
+        icon: Asset.Icon.icRSS.image,
         buttonTitle: L10n.Button.reload,
         buttonAction: { [weak self] in
             self?.reloadData()
         }
     )
-
-    private let apiService: NewsService
-    private let source: NewsSource
-    private let router: Router
-
-    // MARK: - Init
-
-    init(apiService: NewsService, source: NewsSource, router: Router)  {
-        self.apiService = apiService
-        self.source = source
-        self.router = router
-    }
-
-    // MARK: - Public
 
     func loadData() {
         Task { [weak self] in
@@ -69,22 +52,18 @@ final class ArticlesViewModel {
         loadData()
     }
 
-    func open(_ article: ArticleViewModel) {
-        let articleVC = ArticleViewController(article: article)
-        router.push(articleVC)
-    }
-
-    @discardableResult
-    func share(_ article: ArticleViewModel) -> Bool {
-        guard let url = article.url else { return false }
-        router.share(items: [url])
-        return true
+    override func toggleFavorite(_ article: ArticleViewModel) -> Bool {
+        let result = super.toggleFavorite(article)
+        if result {
+            reloadData()
+        }
+        return result
     }
 }
 
 // MARK: - Private
 
-private extension ArticlesViewModel {
+private extension FavoriteArticlesViewModel {
     func fetchData() async {
         guard !isDataLoading else { return }
         defer { isDataLoading = false }
@@ -92,11 +71,16 @@ private extension ArticlesViewModel {
         isDataLoading = true
 
         do {
-            let articles = try await apiService.fetchArticles(source: source)
-            self.articles = articles.map(ArticleViewModel.init)
+            let articles = try storageService.fetchAll(sortedByDateDescending: false)
+            self.articles = articles.map {
+                ArticleViewModel(
+                    from: $0,
+                    storageService: storageService,
+                    router: router
+                )
+            }
         } catch {
-            print(error)
-            // TODO: show error to user
+            show(error: L10n.Error.Message.unknown)
             articles = []
         }
     }

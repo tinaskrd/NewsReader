@@ -17,14 +17,30 @@ public enum L10n {
     }
   }
   public enum Button {
+    /// Favorite
+    public static let favorite = L10n.tr("Localizable", "button.favorite", fallback: "Favorite")
     /// Reload
     public static let reload = L10n.tr("Localizable", "button.reload", fallback: "Reload")
     /// Share
     public static let share = L10n.tr("Localizable", "button.share", fallback: "Share")
+    /// Unfavorite
+    public static let unfavorite = L10n.tr("Localizable", "button.unfavorite", fallback: "Unfavorite")
   }
-  public enum Image {
-    /// square.and.arrow.up
-    public static let share = L10n.tr("Localizable", "image.share", fallback: "square.and.arrow.up")
+  public enum Error {
+    /// Error
+    public static let title = L10n.tr("Localizable", "error.title", fallback: "Error")
+    public enum Message {
+      /// Unable to update favorite status. Please try again.
+      public static let favorite = L10n.tr("Localizable", "error.message.favorite", fallback: "Unable to update favorite status. Please try again.")
+      /// Unable to remove from favorites. Please try again.
+      public static let unfavorite = L10n.tr("Localizable", "error.message.unfavorite", fallback: "Unable to remove from favorites. Please try again.")
+      /// An unknown error occurred. Please try again.
+      public static let unknown = L10n.tr("Localizable", "error.message.unknown", fallback: "An unknown error occurred. Please try again.")
+      public enum Feed {
+        /// Unable to load feed. Please check your internet connection and try again.
+        public static let load = L10n.tr("Localizable", "error.message.feed.load", fallback: "Unable to load feed. Please check your internet connection and try again.")
+      }
+    }
   }
   public enum Screen {
     public enum Articles {
@@ -35,6 +51,16 @@ public enum L10n {
         public static let title = L10n.tr("Localizable", "screen.articles.empty.title", fallback: "Ooops")
       }
     }
+    public enum Favorites {
+      /// Favorites
+      public static let title = L10n.tr("Localizable", "screen.favorites.title", fallback: "Favorites")
+      public enum Empty {
+        /// You have no favorite articles yet
+        public static let message = L10n.tr("Localizable", "screen.favorites.empty.message", fallback: "You have no favorite articles yet")
+        /// Ooops
+        public static let title = L10n.tr("Localizable", "screen.favorites.empty.title", fallback: "Ooops")
+      }
+    }
     public enum Feed {
       /// Localizable.strings
       ///   NewsReader
@@ -42,6 +68,10 @@ public enum L10n {
       ///   Created by Tina  on 13.01.26.
       public static let title = L10n.tr("Localizable", "screen.feed.title", fallback: "Feed")
     }
+  }
+  public enum Share {
+    /// Heyyy check this out!
+    public static let message = L10n.tr("Localizable", "share.message", fallback: "Heyyy check this out!")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

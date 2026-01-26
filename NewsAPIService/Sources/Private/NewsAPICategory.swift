@@ -1,3 +1,8 @@
+//
+//  NewsAPICategory.swift
+//  NewsAPIService
+//
+
 
 import Foundation
 import DataTypes

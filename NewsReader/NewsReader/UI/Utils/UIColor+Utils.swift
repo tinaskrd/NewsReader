@@ -2,11 +2,20 @@
 //  UIColor+Utils.swift
 //  NewsReader
 //
-//  Created by Tina  on 24.01.26.
-//
+
 
 import UIKit
 
 extension UIColor {
-    static let titleColor = Asset.title.color
+    static var title: UIColor {
+        Asset.Color.title.color
+    }
+
+    static var appBackground: UIColor {
+        Asset.Color.appBackground.color
+    }
+
+    static var appYellow: UIColor {
+        Asset.Color.appYellow.color
+    }
 }

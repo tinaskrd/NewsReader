@@ -1,3 +1,9 @@
+//
+//  NewsServiceError.swift
+//  NewsService
+//
+
+
 import Foundation
 
 public enum NewsServiceError: Error {

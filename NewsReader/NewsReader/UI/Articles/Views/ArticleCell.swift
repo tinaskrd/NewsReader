@@ -12,21 +12,21 @@ final class ArticleCell: UITableViewCell {
     
     private let titleLabel = UILabel(
         font: .primarySemibold(of: 16.0),
-        textColor: .titleColor,
+        textColor: .title,
         textAlignment: .left,
         numberOfLines: 2
     )
     
     private let summaryLabel =  UILabel(
         font: .primarySemibold(of: 14.0),
-        textColor: .titleColor,
+        textColor: .title,
         textAlignment: .left,
         numberOfLines: 3
     )
     
     private let dateLabel = UILabel(
         font: .primaryMedium(of: 12.0),
-        textColor: .titleColor,
+        textColor: .title,
         textAlignment: .left
     )
     
@@ -48,18 +48,30 @@ final class ArticleCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init (coder: ) has not been implemented")
     }
-    
+
+    // MARK: - Lifecycle
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        articleImageView.kf.cancelDownloadTask()
+    }
 }
 
 // MARK: - Private
 
 extension ArticleCell {
     private func setupUI() {
-        
-        contentView.addSubviews(articleImageView,
-                                titleLabel,
-                                summaryLabel,
-                                dateLabel)
+
+        let selectedBackgroundView = UIView()
+        selectedBackgroundView.backgroundColor = .appYellow.withAlphaComponent(0.3)
+        self.selectedBackgroundView = selectedBackgroundView
+
+        contentView.addSubviews(
+            articleImageView,
+            titleLabel,
+            summaryLabel,
+            dateLabel
+        )
 
         articleImageView.snp.makeConstraints { make in
             make.left.top.equalToSuperview().offset(12)
@@ -93,7 +105,16 @@ extension ArticleCell {
     func update(with viewModel: ArticleViewModel) {
         titleLabel.text = viewModel.title
         summaryLabel.text = viewModel.summary
-        dateLabel.text = viewModel.publishedDateString
-        articleImageView.kf.setImage(with: viewModel.imageURL)
+        dateLabel.text = viewModel.publishedDate
+        articleImageView.kf.indicatorType = .activity
+        articleImageView.kf.setImage(
+            with: viewModel.imageURL,
+            options: [.transition(.fade(0.25))]
+        ) { [weak self] result in
+            guard let self else { return }
+            if case .failure = result {
+                articleImageView.image = Asset.Image.imgPhoto.image
+            }
+        }
     }
 }

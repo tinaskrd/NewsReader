@@ -1,3 +1,9 @@
+//
+//  NewsService.swift
+//  NewsService
+//
+
+
 import DataTypes
 
 public protocol NewsService {

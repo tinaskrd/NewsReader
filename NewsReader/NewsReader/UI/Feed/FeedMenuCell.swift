@@ -12,7 +12,7 @@ final class FeedMenuCell: PagingMenuViewCell {
 
     let titleLabel = UILabel(
         font: .primaryMedium(of: 17.0),
-        textColor: .titleColor,
+        textColor: .title,
         textAlignment: .center
     )
 

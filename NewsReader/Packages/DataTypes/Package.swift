@@ -18,6 +18,7 @@ let package = Package(
             name: "DataTypes"),
         .testTarget(
             name: "DataTypesTests",
-            dependencies: ["DataTypes"]),
+            dependencies: ["DataTypes"]
+        ),
     ]
 )

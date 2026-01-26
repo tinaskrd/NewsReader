@@ -18,6 +18,5 @@ extension UIFont {
     static func primarySemibold(of size: CGFloat) -> UIFont {
         .systemFont(ofSize: size, weight: .semibold)
     }
-
 }
 
