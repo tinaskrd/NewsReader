@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  NewsReader
+
+  Created by Tina  on 13.01.26.
+  
+*/
+
+"screen.feed.title" = "Feed";
+
+"screen.articles.empty.title" = "Ooops";
+"screen.articles.empty.message" = "We're apologize, but there are no news for this source";
+
+"screen.favorites.title" = "Favorites";
+"screen.favorites.empty.title" = "Ooops";
+"screen.favorites.empty.message" = "You have no favorite articles yet";
+
+"share.message" = "Heyyy check this out!";
+
+"alert.button.ok" = "Ok";
+
+"button.reload" = "Reload";
+"button.share" = "Share";
+"button.favorite" = "Favorite";
+"button.unfavorite" = "Unfavorite";
+
+"error.title" = "Error";
+"error.message.feed.load" = "Unable to load feed. Please check your internet connection and try again.";
+"error.message.favorite" = "Unable to update favorite status. Please try again.";
+"error.message.unfavorite" = "Unable to remove from favorites. Please try again.";
+"error.message.unknown" = "An unknown error occurred. Please try again.";

@@ -1,0 +1,21 @@
+input_dir: NewsReader/Resources/
+output_dir: NewsReader/Resources/Generated/
+
+xcassets:
+  - inputs:
+      - Assets.xcassets
+    outputs:
+      - templateName: swift5
+        output: XCAssets+Generated.swift
+        params:
+          publicAccess: true
+          ## Strings
+strings:
+  - inputs:
+    - Localization/en.lproj/Localizable.strings
+    outputs:
+    - templateName: structured-swift5
+      params:
+        publicAccess: true
+      output: Strings+Generated.swift
+
